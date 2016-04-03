@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+  <META CHARSET="UTF-8">
+  <TITLE>bOTP</TITLE>
+
+  <LINK REL="stylesheet" TYPE="text/css" HREF="otp.css">
+  <LINK REL="stylesheet" TYPE="text/css" HREF="theme-default.css" ID="style">
+
+  <STYLE>
+    body {
+      width: 10em;
+      height: 9ex;
+      text-align: center;
+    }
+  </STYLE>
+
+  <SCRIPT SRC="3rd_party/sha.js"><!-- jsSHA --></SCRIPT>
+  <SCRIPT SRC="3rd_party/aes.js"><!-- CryptoJS v3.1.2 --></SCRIPT>
+  <SCRIPT SRC="3rd_party/totp.js"><!-- nraboy OTP code --></SCRIPT>
+  <SCRIPT SRC="botp.js"><!-- my OTP functions --></SCRIPT>
+  <SCRIPT SRC="popup.js"><!-- Initialize Event Listeners --></SCRIPT>
+</HEAD>
+<BODY CLASS="theme">
+  <INPUT TYPE="password" ID="pin" CLASS="theme enter" AUTOFOCUS>
+  &#11015;
+  <INPUT TYPE="text" ID="tok" CLASS="theme highlight show">
+  <DIV ID="meter" CLASS="theme highlight meter"></DIV>
+
+  <DIV CLASS="theme rev popup" ID="popup1">
+    Copied
+  </DIV>
+</BODY>
+</HTML>

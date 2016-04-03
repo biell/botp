@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+  <META CHARSET="UTF-8">
+  <TITLE>bOTP Options</TITLE>
+
+  <LINK REL="stylesheet" TYPE="text/css" HREF="otp.css">
+  <LINK REL="stylesheet" TYPE="text/css" HREF="theme-default.css" ID="style">
+
+  <SCRIPT SRC="3rd_party/sha.js"><!-- jsSHA --></SCRIPT>
+  <SCRIPT SRC="3rd_party/aes.js"><!-- CryptoJS v3.1.2 --></SCRIPT>
+  <SCRIPT SRC="3rd_party/totp.js"><!-- nraboy OTP code --></SCRIPT>
+  <SCRIPT SRC="botp.js"><!-- my OTP functions --></SCRIPT>
+  <SCRIPT SRC="options.js"><!-- Initialize Event Listeners --></SCRIPT>
+</HEAD>
+<BODY CLASS="theme">
+  <IMG SRC="botp48.png" CLASS="rev icon">
+  <H1>bOTP Options</H1>
+
+  <H2 CLASS="theme rev">Period</H2>
+  <P CLASS="theme">Is your token a 30 or 60 second token:<BR>
+    <SELECT ID="period">
+      <OPTION DEFAULT>30</OPTION>
+      <OPTION>60</OPTION>
+    </SELECT>
+    Seconds</P>
+
+  <H2 CLASS="theme rev">Secret</H2>
+  <P CLASS="theme">OTP Secret <I>(base16 or base32)</I>:<BR>
+    <INPUT TYPE="text" ID="tok" CLASS="theme highlight enter" STYLE="width: 45ex"></P>
+
+  <P CLASS="theme">Password to encrypt OTP secret <I>(>3 characters)</I>:<BR>
+    <INPUT TYPE="text" ID="pin" CLASS="theme highlight enter" STYLE="width: 45ex"></P>
+
+  <P CLASS="theme"><BUTTON ID="save">Save</BUTTON></P>
+
+  <P CLASS="theme"><BUTTON ID="erase">Erase</BUTTON></P>
+
+  <H2 CLASS="theme rev">Theme</H2>
+  <P CLASS="theme">Select a color scheme:<BR>
+    <SELECT ID="theme">
+      <OPTION DEFAULT>default</OPTION>
+      <OPTION>cyan</OPTION>
+      <OPTION>amber</OPTION>
+      <OPTION>black</OPTION>
+      <OPTION>yellow</OPTION>
+      <OPTION>ugly</OPTION>
+    </SELECT>
+    </P>
+
+  <DIV CLASS="notes">
+    <DIV CLASS="note">
+      <H3>OTP Secret</H3>
+      This software implements a single Time-Based One-Time Password algorithm.
+      Secrets must be entered by code, this application does not have QR
+      support.  The secret is AES encrypted and stored in your browser's
+      local stroage.  Secrets are not synchronized across browsers.  AES
+      encryption is only as good as the password used to protect the secret,
+      and should be considered a temporary protection measure.  If your
+      system is lost or stolen, you should report your OTP secret as
+      potentially being compromised.
+    </DIV>
+
+    <DIV CLASS="note">
+      <H3>Public Domain Notice</H3>
+      With the exception of items filed under <EM>3rd_party</EM>, this work
+      is released into the Public Domain.  Please visit
+      <A HREF="http://unlicense.org/">unlicense.org</A> for more information.
+    </DIV>
+
+    <DIV CLASS="note">
+      <H3>External libraries</H3>
+
+      <DL>
+        <DT>aes.js</DT>
+        <DD>
+          CryptoJS v3.1.2<BR>
+          code.google.com/p/crypto-js<BR>
+          (c) 2009-2013 by Jeff Mott. All rights reserved.<BR>
+          <A HREF="https://code.google.com/p/crypto-js/wiki/License">code.google.com/p/crypto-js/wiki/License</A>
+        </DD>
+
+        <DT>sha.js</DT>
+        <DD>
+          Copyright Brian Turek 2008-2013<BR>
+          Distributed under the BSD License<BR>
+          See <A HREF="http://caligatio.github.com/jsSHA/">http://caligatio.github.com/jsSHA/</A> for more information
+        </DD>
+
+        <DT>totp.js</DT>
+        <DD>
+          TOTP object from Nic Raboy's blog<BR>
+          <A HREF="https://blog.nraboy.com/2014/10/generate-time-based-one-time-passwords-javascript/">https://blog.nraboy.com/2014/10/generate-time-based-one-time-passwords-javascript/</A><BR>
+          His version mostly came from the Tin Isles blog, by russ:<BR>
+          <A HREF="http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/">http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/</A>
+        </DD>
+      </DL>
+    </DIV>
+  </DIV>
+</BODY>
+</HTML>

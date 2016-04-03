@@ -1,0 +1,94 @@
+
+@import url("theme-default.css");
+
+html, body {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+p {
+  margin-left: 2em;
+}
+
+h2 {
+  width: 20em;
+  padding-left: 6pt;
+  border-radius: 8px;
+  margin-bottom: -0.5ex;
+  margin-top: 3ex;
+}
+
+img.icon {
+  float: left;
+  margin-left: 1ex;
+  margin-right: 1ex;
+  border-radius: 8px;
+  padding: 4pt;
+}
+
+div.notes {
+  position: absolute;
+  width: 45em;
+  right: 1ex;
+  bottom: 1ex;
+  font-size: small;
+}
+
+div.note {
+  border: solid 2px;
+  border-radius: 8px;
+  padding: 1ex;
+  margin: 1ex;
+}
+
+input.enter {
+  background-color: rgba(128, 128, 128, 0.4);
+  border: solid 2px;
+  border-radius: 8px;
+  outline: none;
+  padding-top: 2pt;
+  padding-left: 1ex;
+  padding-right: 1ex;
+  width: 8em;
+  font-size: 16px;
+}
+
+input.show {
+  background-color: rgba(128, 128, 128, 0.1);
+  font-family: sans-serif;
+  border: solid 2px;
+  border-radius: 8px;
+  outline: none;
+  padding-top: 2pt;
+  padding-left: 1ex;
+  padding-right: 1ex;
+  width: 8em;
+  font-size: 16px;
+}
+
+div.meter {
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  width: 1em;
+  left: 9em;
+  top: 6ex;
+}
+
+div.popup {
+  font-family: sans-serif;
+  border: solid 2px;
+  border-radius: 8px;
+  outline: none;
+  padding-top: 2pt;
+  padding-bottom: 1pt;
+  padding-left: 1ex;
+  padding-right: 1ex;
+  width: 8em;
+  position: absolute;
+  top: 4ex;
+  left: 4ex;
+  visibility: hidden;
+  text-align: center;
+  font-size: 16px;
+}
+

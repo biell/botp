@@ -1,0 +1,20 @@
+
+.theme {
+  background-color: #F0F0F0;
+  color: #020202;
+  border-color: #111111 !important;
+}
+
+.highlight {
+  color: black;
+}
+
+.rev {
+  background-color: #101010;
+  color: white;
+}
+
+.icon {
+  background-color: #DDDDDD;
+}
+

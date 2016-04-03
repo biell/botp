@@ -1,0 +1,16 @@
+
+.theme {
+  background-color: darkblue;
+  color: gold;
+  border-color: goldenrod !important;
+}
+
+.highlight {
+  color: yellow;
+}
+
+.rev {
+  background-color: goldenrod;
+  color: darkblue;
+}
+

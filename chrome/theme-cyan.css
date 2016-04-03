@@ -1,0 +1,16 @@
+
+.theme {
+  background-color: #020202;
+  color: darkcyan;
+  border-color: #099090 !important;
+}
+
+.highlight {
+  color: cyan;
+}
+
+.rev {
+  background-color: darkcyan;
+  color: black;
+}
+

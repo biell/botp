@@ -1,0 +1,16 @@
+
+.theme {
+  background-color: #020202;
+  color: green;
+  border-color: #099009 !important;
+}
+
+.highlight {
+  color: lime;
+}
+
+.rev {
+  background-color: green;
+  color: black;
+}
+
