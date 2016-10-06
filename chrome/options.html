@@ -17,24 +17,58 @@
   <IMG SRC="botp48.png" CLASS="rev icon">
   <H1>bOTP Options</H1>
 
-  <H2 CLASS="theme rev">Period</H2>
-  <P CLASS="theme">Is your token a 30 or 60 second token:<BR>
-    <SELECT ID="period">
-      <OPTION DEFAULT>30</OPTION>
-      <OPTION>60</OPTION>
-    </SELECT>
-    Seconds</P>
+  <H2 CLASS="theme rev">Secrets</H2>
 
-  <H2 CLASS="theme rev">Secret</H2>
-  <P CLASS="theme">OTP Secret <I>(base16 or base32)</I>:<BR>
-    <INPUT TYPE="text" ID="tok" CLASS="theme highlight enter" STYLE="width: 45ex"></P>
-
-  <P CLASS="theme">Password to encrypt OTP secret <I>(>3 characters)</I>:<BR>
-    <INPUT TYPE="text" ID="pin" CLASS="theme highlight enter" STYLE="width: 45ex"></P>
-
-  <P CLASS="theme"><BUTTON ID="save">Save</BUTTON></P>
-
-  <P CLASS="theme"><BUTTON ID="erase">Erase</BUTTON></P>
+  <TABLE>
+    <TR>
+      <TH>#</TH>
+      <TH>Nickname</TH>
+      <TH>OTP Secret <I>(base 16 or base32)</I></TH>
+      <TH>Password to encrypt OTP secret</TH>
+      <TH>Period</TH>
+      <TH>Actions</TH>
+    </TR>
+    <TR>
+      <TD>1.</TD>
+      <TD><INPUT TYPE="text" ID="name1" CLASS="theme highlight enter" STYLE="width: 12ex"></TD>
+      <TD><INPUT TYPE="text" ID="tok1" CLASS="theme highlight enter" STYLE="width: 40ex"></TD>
+      <TD><INPUT TYPE="text" ID="pin1" CLASS="theme highlight enter" STYLE="width: 30ex"></TD>
+      <TD><SELECT ID="period1"><OPTION DEFAULT>30</OPTION><OPTION>60</OPTION></SELECT></TD>
+      <TD><BUTTON ID="save1" VALUE="1">Save</BUTTON> <BUTTON ID="erase1" VALUE="1">Erase</BUTTON></TD>
+    </TR>
+    <TR>
+      <TD>2.</TD>
+      <TD><INPUT TYPE="text" ID="name2" CLASS="theme highlight enter" STYLE="width: 12ex"></TD>
+      <TD><INPUT TYPE="text" ID="tok2" CLASS="theme highlight enter" STYLE="width: 40ex"></TD>
+      <TD><INPUT TYPE="text" ID="pin2" CLASS="theme highlight enter" STYLE="width: 30ex"></TD>
+      <TD><SELECT ID="period2"><OPTION DEFAULT>30</OPTION><OPTION>60</OPTION></SELECT></TD>
+      <TD><BUTTON ID="save2" VALUE="2">Save</BUTTON> <BUTTON ID="erase2" VALUE="2">Erase</BUTTON></TD>
+    </TR>
+    <TR>
+      <TD>3.</TD>
+      <TD><INPUT TYPE="text" ID="name3" CLASS="theme highlight enter" STYLE="width: 12ex"></TD>
+      <TD><INPUT TYPE="text" ID="tok3" CLASS="theme highlight enter" STYLE="width: 40ex"></TD>
+      <TD><INPUT TYPE="text" ID="pin3" CLASS="theme highlight enter" STYLE="width: 30ex"></TD>
+      <TD><SELECT ID="period3"><OPTION DEFAULT>30</OPTION><OPTION>60</OPTION></SELECT></TD>
+      <TD><BUTTON ID="save3" VALUE="3">Save</BUTTON> <BUTTON ID="erase3" VALUE="3">Erase</BUTTON></TD>
+    </TR>
+    <TR>
+      <TD>4.</TD>
+      <TD><INPUT TYPE="text" ID="name4" CLASS="theme highlight enter" STYLE="width: 12ex"></TD>
+      <TD><INPUT TYPE="text" ID="tok4" CLASS="theme highlight enter" STYLE="width: 40ex"></TD>
+      <TD><INPUT TYPE="text" ID="pin4" CLASS="theme highlight enter" STYLE="width: 30ex"></TD>
+      <TD><SELECT ID="period4"><OPTION DEFAULT>30</OPTION><OPTION>60</OPTION></SELECT></TD>
+      <TD><BUTTON ID="save4" VALUE="4">Save</BUTTON> <BUTTON ID="erase4" VALUE="4">Erase</BUTTON></TD>
+    </TR>
+    <TR>
+      <TD>5.</TD>
+      <TD><INPUT TYPE="text" ID="name5" CLASS="theme highlight enter" STYLE="width: 12ex"></TD>
+      <TD><INPUT TYPE="text" ID="tok5" CLASS="theme highlight enter" STYLE="width: 40ex"></TD>
+      <TD><INPUT TYPE="text" ID="pin5" CLASS="theme highlight enter" STYLE="width: 30ex"></TD>
+      <TD><SELECT ID="period5"><OPTION DEFAULT>30</OPTION><OPTION>60</OPTION></SELECT></TD>
+      <TD><BUTTON ID="save5" VALUE="5">Save</BUTTON> <BUTTON ID="erase5" VALUE="5">Erase</BUTTON></TD>
+    </TR>
+  </TABLE>
 
   <H2 CLASS="theme rev">Theme</H2>
   <P CLASS="theme">Select a color scheme:<BR>

@@ -18,6 +18,22 @@ h2 {
   margin-top: 3ex;
 }
 
+table {
+  padding: 1ex;
+}
+
+td {
+  padding: 4px;
+}
+
+button {
+  margin-left: 1em;
+}
+
+select {
+  margin-left: 1em;
+}
+
 img.icon {
   float: left;
   margin-left: 1ex;
@@ -26,15 +42,27 @@ img.icon {
   padding: 4pt;
 }
 
+div#name {
+  font-weight: bold;
+  margin-top: -0.5ex;
+  margin-bottom: 0.5ex;
+}
+
+div.secret {
+  display: inline-block;
+  margin: 1ex;
+}
+
 div.notes {
-  position: absolute;
-  width: 45em;
   right: 1ex;
   bottom: 1ex;
   font-size: small;
+  column-count: 2;
+  column-width: 40em;
 }
 
 div.note {
+  display: inline-block;
   border: solid 2px;
   border-radius: 8px;
   padding: 1ex;

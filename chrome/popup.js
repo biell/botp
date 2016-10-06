@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var meter=document.getElementById('meter');
   var style=document.getElementById('style');
   var theme=localStorage['theme'] || 'default';
-  var period=localStorage['period'] || 'default';
-
+  var i;
 
   pin.addEventListener('input', compute_otp);
   tok.addEventListener('focus', copy_otp);
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
   style.href='theme-'+theme+'.css';
 
   load_pin();
-  compute_otp();
-  setInterval(compute_otp, (period/6)*1000);
+  i=compute_otp();
+  setInterval(compute_otp, (get_period(i)/6)*1000);
 });
 
