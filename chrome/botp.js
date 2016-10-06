@@ -37,7 +37,7 @@ function try_otp(event, i) {
   var meter=document.getElementById('meter');
   var otp=new TOTP();
   var name=localStorage['name'+i];
-  var salt=atob(localStorage['salt'+i]);
+  var salt=localStorage['salt'+i];
   var secret=localStorage['secret'+i];
   var period=localStorage['period'+i];
   var clock=['&#x28F6;', '&#x28F4;', '&#x28F0', '&#x28B0', '&#x2830;', '&#x2810;'];
@@ -45,20 +45,23 @@ function try_otp(event, i) {
   var tock=Math.floor((new Date().getSeconds()+10)%period / tick);
   var hex;
    
-  if(secret == undefined) {
-    tok.value='No Secret';
-    title.innerHTML='&nbsp;';
-    return(0);
-  } else if(pin.value.length<4) {
+  if(!secret || !salt || !period || !pin || pin.value.length<4) {
     tok.value='';
     title.innerHTML='&nbsp;';
     return(0);
   }
 
+  salt=atob(salt);
   meter.innerHTML=clock[tock];
 
-  hex=unpack(
-    CryptoJS.AES.decrypt(secret, salt+pin.value).toString(CryptoJS.enc.Utf8));
+  try {
+    hex=unpack(
+      CryptoJS.AES.decrypt(secret, salt+pin.value).toString(CryptoJS.enc.Utf8));
+  } catch(err) {
+    tok.value='';
+    title.innerHTML='&nbsp;';
+    return(0);
+  }
 
   if(hex.length<40 || hex.match(/[^0-9a-fA-F]/)) {
     tok.value='';
