@@ -37,7 +37,7 @@ function try_otp(event, i) {
   var meter=document.getElementById('meter');
   var otp=new TOTP();
   var name=localStorage['name'+i];
-  var salt=atob(localStorage['salt'+i]);
+  var salt=localStorage['salt'+i];
   var secret=localStorage['secret'+i];
   var period=localStorage['period'+i];
   var clock=['&#x28F6;', '&#x28F4;', '&#x28F0', '&#x28B0', '&#x2830;', '&#x2810;'];
@@ -58,7 +58,7 @@ function try_otp(event, i) {
   meter.innerHTML=clock[tock];
 
   hex=unpack(
-    CryptoJS.AES.decrypt(secret, salt+pin.value).toString(CryptoJS.enc.Utf8));
+    CryptoJS.AES.decrypt(secret, atob(salt)+pin.value).toString(CryptoJS.enc.Utf8));
 
   if(hex.length<40 || hex.match(/[^0-9a-fA-F]/)) {
     tok.value='';
@@ -145,9 +145,9 @@ function get_period(i) {
 }
 
 function set_period(event) {
-  var period=document.getElementById(event.srcElement.id);
+  var period=document.getElementById(event.target.id);
 
-  localStorage.setItem(event.srcElement.id, period.value);
+  localStorage.setItem(event.target.id, period.value);
 }
 
 function get_theme() {
@@ -178,7 +178,7 @@ function random_string(size) {
 }
 
 function save_otp(event) {
-  var i=event.srcElement.value;
+  var i=event.target.value;
   var otp=new TOTP();
   var name=document.getElementById('name'+i);
   var pin=document.getElementById('pin'+i);
@@ -205,7 +205,7 @@ function save_otp(event) {
 }
 
 function clear_otp(event) {
-  var i=event.srcElement.value;
+  var i=event.target.value;
   var period=document.getElementById('period'+i);
   var name=document.getElementById('name'+i);
 

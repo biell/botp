@@ -5,7 +5,15 @@
   "version": "1.6",
   "manifest_version": 2,
 
-  "options_page": "options.html",
+  "applications": {
+    "gecko": {
+      "id": "botp@glaciated.org"
+    }
+  },
+
+  "options_ui": {
+    "page": "options.html"
+  },
 
   "icons": {
     "16": "botp16.png",
