@@ -45,20 +45,28 @@ function try_otp(event, i) {
   var tock=Math.floor((new Date().getSeconds()+10)%period / tick);
   var hex;
    
-  if(secret == undefined) {
-    tok.value='No Secret';
-    title.innerHTML='&nbsp;';
-    return(0);
-  } else if(pin.value.length<4) {
+  if(!secret || !salt || !period || !pin || pin.value.length<4) {
     tok.value='';
     title.innerHTML='&nbsp;';
     return(0);
   }
 
+  salt=atob(salt);
   meter.innerHTML=clock[tock];
 
+<<<<<<< HEAD
   hex=unpack(
     CryptoJS.AES.decrypt(secret, atob(salt)+pin.value).toString(CryptoJS.enc.Utf8));
+=======
+  try {
+    hex=unpack(
+      CryptoJS.AES.decrypt(secret, salt+pin.value).toString(CryptoJS.enc.Utf8));
+  } catch(err) {
+    tok.value='';
+    title.innerHTML='&nbsp;';
+    return(0);
+  }
+>>>>>>> 8cd5b1db889d77a0b0ee1ceaf66eec0686b74d66
 
   if(hex.length<40 || hex.match(/[^0-9a-fA-F]/)) {
     tok.value='';
