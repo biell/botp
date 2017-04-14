@@ -26,6 +26,14 @@ function unpack(bin) {
   return(hex);
 }
 
+function set_content(element, text) {
+  while(element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+
+  element.appendChild(document.createTextNode(text));
+}
+
 function set_pin(pin) {
   return(chrome.runtime.sendMessage({method: "setPin", pin: pin}));
 }
@@ -40,33 +48,30 @@ function try_otp(event, i) {
   var salt=localStorage['salt'+i];
   var secret=localStorage['secret'+i];
   var period=localStorage['period'+i];
-  var clock=['&#x28F6;', '&#x28F4;', '&#x28F0', '&#x28B0', '&#x2830;', '&#x2810;'];
+  var clock=['\u28F6', '\u28F4', '\u28F0', '\u28B0', '\u2830', '\u2810'];
+  var nbsp='\u00A0';
   var tick=period/6;
   var tock=Math.floor((new Date().getSeconds()+10)%period / tick);
   var hex;
    
   if(!secret || !salt || !period || !pin || pin.value.length<4) {
     tok.value='';
-    title.innerHTML='&nbsp;';
+    set_content(title, nbsp);
+    set_content(meter, nbsp);
     return(0);
   }
 
   salt=atob(salt);
-  meter.innerHTML=clock[tock];
+  set_content(meter, clock[tock]);
 
-<<<<<<< HEAD
-  hex=unpack(
-    CryptoJS.AES.decrypt(secret, atob(salt)+pin.value).toString(CryptoJS.enc.Utf8));
-=======
   try {
     hex=unpack(
       CryptoJS.AES.decrypt(secret, salt+pin.value).toString(CryptoJS.enc.Utf8));
   } catch(err) {
     tok.value='';
-    title.innerHTML='&nbsp;';
+    set_content(title, nbsp);
     return(0);
   }
->>>>>>> 8cd5b1db889d77a0b0ee1ceaf66eec0686b74d66
 
   if(hex.length<40 || hex.match(/[^0-9a-fA-F]/)) {
     tok.value='';
@@ -91,10 +96,10 @@ function try_otp(event, i) {
   pin.focus();
 
   if(tok.value) {
-    title.innerHTML=name;
+    set_content(title, name);
     return(period);
   } else {
-    title.innerHTML='&nbsp;';
+    set_content(title, nbsp);
     return(0);
   }
 }
